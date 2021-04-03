@@ -44,7 +44,19 @@ class LinkedList {
             }
         }
     }
-
+    delLast(n) {
+        let trav = this.head, temp = null
+        if (this.head.data === n) temp = this.head
+        while (trav.next) {
+            if (trav.next.data === n) temp = trav
+            trav = trav.next
+        }
+        if (temp && temp === this.head) {
+            this.head = this.head.next
+        } else if (temp) {
+            temp.next = temp.next.next
+        }
+    }
     printList() {
         let temp = this.head
         let result = ''
@@ -60,9 +72,11 @@ let ll = new LinkedList()
 ll.addAtLast(1)
 ll.addAtLast(2)
 ll.addAtLast(3)
-ll.addAtLast(4)
+ll.addAtLast(2)
+ll.addAtLast(2)
+ll.addAtLast(2)
 ll.printList()
-ll.deleteLastOcc(4)
+ll.delLast(2)
 ll.printList()
 
 
