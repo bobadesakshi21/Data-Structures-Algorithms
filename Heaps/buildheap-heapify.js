@@ -7,8 +7,6 @@ const heapify = (arr, index, length) => {
     if (left < length && arr[left] > arr[index]) largest = left
     if (right < length && arr[right] > arr[largest]) largest = right
 
-    if (left < length && right < length) console.log(arr[index], arr[left], arr[right], arr[largest])
-
     if (largest != index) {
         let temp = arr[index]
         arr[index] = arr[largest]
